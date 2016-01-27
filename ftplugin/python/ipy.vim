@@ -71,7 +71,7 @@ endif
 " correspond to the 'global' behavior, or with ':setl ...' to get the 'local'
 " behavior
 if !exists('g:ipy_completefunc')
-    let g:ipy_completefunc = 'omni'
+    let g:ipy_completefunc = 'local'
 endif
 
 Python2or3 << endpython
@@ -156,7 +156,7 @@ function! s:DoMappings()
        if &buftype == ''
         map  <buffer> <silent> <F5>           <Plug>(IPython-RunFile)
        endif
-        " map  <buffer> <silent> <S-F5>         <Plug>(IPython-RunLine)
+        map  <buffer> <silent> <C-S>         <Plug>(IPython-RunLine)
         map  <buffer> <silent> <F9>           <Plug>(IPython-RunLines)
         map  <buffer> <silent> ,d             <Plug>(IPython-OpenPyDoc)
         map  <buffer> <silent> <M-r>          <Plug>(IPython-UpdateShell)

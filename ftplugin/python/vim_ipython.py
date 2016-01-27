@@ -1,6 +1,6 @@
 reselect = False             # reselect lines after sending from Visual mode
 show_execution_count = False # wait to get numbers for In[43]: feedback?
-monitor_subchannel = False   # update vim-ipython 'shell' on every send?
+monitor_subchannel = True   # update vim-ipython 'shell' on every send?
 current_line = ''
 
 try:
