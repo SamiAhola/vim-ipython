@@ -139,11 +139,6 @@ noremap  <Plug>(IPython-RunLines)           :Python2or3 run_these_lines()<CR>
 noremap  <Plug>(IPython-OpenPyDoc)          :Python2or3 get_doc_buffer()<CR>
 noremap  <Plug>(IPython-UpdateShell)        :Python2or3 if update_subchannel_msgs(force=True): echo("vim-ipython shell updated",'Operator')<CR>
 noremap  <Plug>(IPython-ToggleReselect)     :Python2or3 toggle_reselect()<CR>
-"noremap  <Plug>(IPython-StartDebugging)     :Python2or3 send('%pdb')<CR>
-"noremap  <Plug>(IPython-BreakpointSet)      :Python2or3 set_breakpoint()<CR>
-"noremap  <Plug>(IPython-BreakpointClear)    :Python2or3 clear_breakpoint()<CR>
-"noremap  <Plug>(IPython-DebugThisFile)      :Python2or3 run_this_file_pdb()<CR>
-"noremap  <Plug>(IPython-BreakpointClearAll) :Python2or3 clear_all_breaks()<CR>
 noremap  <Plug>(IPython-ToggleSendOnSave)   :call <SID>toggle_send_on_save()<CR>
 noremap  <Plug>(IPython-PlotClearCurrent)   :Python2or3 run_command("plt.clf()")<CR>
 noremap  <Plug>(IPython-PlotCloseAll)       :Python2or3 run_command("plt.close('all')")<CR>
@@ -156,19 +151,9 @@ function! s:DoMappings()
        if &buftype == ''
         map  <buffer> <silent> <F5>           <Plug>(IPython-RunFile)
        endif
-        map  <buffer> <silent> <C-S>         <Plug>(IPython-RunLine)
-        map  <buffer> <silent> <F9>           <Plug>(IPython-RunLines)
         map  <buffer> <silent> ,d             <Plug>(IPython-OpenPyDoc)
         map  <buffer> <silent> <M-r>          <Plug>(IPython-UpdateShell)
         map  <buffer> <silent> <S-F9>         <Plug>(IPython-ToggleReselect)
-        "map  <buffer> <silent> <C-F6>         <Plug>(IPython-StartDebugging)
-        "map  <buffer> <silent> <F6>           <Plug>(IPython-BreakpointSet)
-        "map  <buffer> <silent> <S-F6>         <Plug>(IPython-BreakpointClear)
-        "map  <buffer> <silent> <F7>           <Plug>(IPython-DebugThisFile)
-        "map  <buffer> <silent> <S-F7>         <Plug>(IPython-BreakpointClearAll)
-        imap <buffer>          <C-F5>         <C-o><Plug>(IPython-RunFile)
-        imap <buffer>          <S-F5>         <C-o><Plug>(IPython-RunLines)
-        " imap <buffer> <silent> <F5>           <C-o><Plug>(IPython-RunFile)
         map  <buffer>          <C-F5>         <Plug>(IPython-ToggleSendOnSave)
         "" Example of how to quickly clear the current plot with a keystroke
         "map  <buffer> <silent> <F12>          <Plug>(IPython-PlotClearCurrent)
@@ -177,12 +162,11 @@ function! s:DoMappings()
 
         "pi custom
         map  <buffer> <silent> <C-Return>        <Plug>(IPython-RunFile)
-        " map  <buffer> <silent> <Leader>x         <Plug>(IPython-RunLine)
-        " imap <buffer> <silent> <Leader>x         <Esc><Plug>(IPython-RunLine)
-        map  <buffer> <silent> <M-S>             <Plug>(IPython-RunLineAsTopLevel)
-        "xmap <buffer> <silent> <Leader>x         <Plug>(IPython-RunLinesAsTopLevel)
-        xmap <buffer> <silent> <M-S>             <Plug>(IPython-RunLines)
-        map  <buffer> <silent> <Leader><Leader>x <Plug>(IPython-RunCell)
+        map  <buffer> <silent> <C-s>          <Plug>(IPython-RunLine)
+        imap <buffer> <silent> <C-s>          <C-o><Plug>(IPython-RunLine)
+        map  <buffer> <silent> <M-s>          <Plug>(IPython-RunLineAsTopLevel)
+        xmap <buffer> <silent> <C-S>          <Plug>(IPython-RunLines)
+        xmap <buffer> <silent> <M-s>          <Plug>(IPython-RunLinesAsTopLevel)
 
         " noremap  <buffer> <silent> <M-c>      I#<ESC>
         " xnoremap <buffer> <silent> <M-c>      I#<ESC>
