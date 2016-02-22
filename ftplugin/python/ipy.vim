@@ -185,7 +185,7 @@ function! s:DoMappings()
             \ | call s:DoMappings() | endif
     augroup END
 
-    setlocal omnifunc=CompleteIPython
+    setlocal completefunc=CompleteIPython
 endfunction
 
 function! s:GetDocBuffer()
