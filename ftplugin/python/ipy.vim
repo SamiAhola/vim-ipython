@@ -25,13 +25,13 @@ if !(has('python') || has('python3'))
 endif
 
 if has('python3') && get(g:, 'pymode_python', '') !=# 'python'
-  command! -nargs=1 Python2or3 python3 <args>
+  command! -range -nargs=1 Python2or3 <line1>,<line2>python3 <args>
   Python2or3 PY3 = True
   function! IPythonPyeval(arg)
     return py3eval(a:arg)
   endfunction
 else
-  command! -nargs=1 Python2or3 python <args>
+  command! -range -nargs=1 Python2or3 <line1>,<line2>python <args>
   Python2or3 PY3 = False
   function! IPythonPyeval(arg)
     return pyeval(a:arg)
